@@ -39,7 +39,7 @@ The engine is the main service of the API.
 
 ### Generate a platform api token (for the /platform scope of the API)
 
-    $ rake platforms:generate_token name=<your platform name>
+    $ rake platforms:generate_api_token name=<your platform name>
 
 ## Specify the messages digest webhook url (see section Webhooks below)
 
