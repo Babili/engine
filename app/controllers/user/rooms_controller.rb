@@ -4,7 +4,7 @@ class User::RoomsController < UserController
     only_closed       = params[:only_closed] == "true"
     room_ids          = params[:room_ids]
     rooms_per_page    = params[:per_page].try(:to_i) || Room::PER_PAGE
-    rooms             = current_user.rooms.includes(:users)
+    rooms             = current_user.rooms.includes(:users, :senders)
 
     if params[:first_seen_room_id]
       first_seen_room = current_user.rooms.find_by!(public_id: params[:first_seen_room_id])
