@@ -34,7 +34,8 @@ class User::RoomPresenter < BasePresenter
           messages:       @room.messages_before(@messages_per_room, @first_seen_message),
           room_public_id: @room.public_id
         ),
-        users:    User::UserPresenter.map(@room.users)
+        users:    User::UserPresenter.map(@room.users),
+        senders:  User::UserPresenter.map(@room.senders)
       }
     }
     result[:relationships][:initiator] =  User::UserPresenter.new(@room.initiator).data if @room.initiator
