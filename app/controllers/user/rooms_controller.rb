@@ -4,8 +4,7 @@ class User::RoomsController < UserController
     only_closed       = params[:only_closed] == "true"
     room_ids          = params[:room_ids]
     rooms_per_page    = params[:per_page].try(:to_i) || Room::PER_PAGE
-    rooms             = current_user.rooms.includes(:users, :senders)
-
+    rooms             = current_user.rooms
     if params[:first_seen_room_id]
       first_seen_room = current_user.rooms.find_by!(public_id: params[:first_seen_room_id])
     end
@@ -26,7 +25,7 @@ class User::RoomsController < UserController
       room_count = rooms.count
       rooms      = rooms.before_room(rooms_per_page, first_seen_room)
     end
-
+    rooms.includes(:users, :senders)
     render json: User::RoomPresenter.map(
       rooms:             rooms,
       room_count:        room_count,

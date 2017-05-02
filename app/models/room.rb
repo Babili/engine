@@ -36,7 +36,7 @@ class Room < ActiveRecord::Base
   has_many   :messages, dependent: :destroy
   has_many   :memberships, dependent: :destroy
   has_many   :users, through: :memberships
-  has_many   :senders, -> { uniq }, through: :messages
+  has_many   :senders, -> { distinct }, through: :messages
   belongs_to :initiator, class_name: "User"
   belongs_to :platform
 
