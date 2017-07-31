@@ -16,3 +16,6 @@ test:
 
 production:
   <<: *default_settings
+
+qa:
+  <<: *default_settings
