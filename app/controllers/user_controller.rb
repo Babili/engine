@@ -17,7 +17,7 @@ class UserController < ApplicationController
       aud:        "user",
       verify_aud: true
     }
-    JWT.decode(token, rsa_public, verification_options)
+    JWT.decode(token, rsa_public, true, verification_options)
     @current_user = @current_platform.users.find_by!(public_id: user_public_id)
   rescue ActiveRecord::RecordNotFound, JWT::DecodeError
     authentication_failed!

@@ -16,7 +16,7 @@ class PlatformController < ApplicationController
       aud:        "platform",
       verify_aud: true
     }
-    JWT.decode(token, rsa_public, verification_options)
+    JWT.decode(token, rsa_public, true, verification_options)
   rescue ActiveRecord::RecordNotFound, JWT::DecodeError => e
     ap e
     authentication_failed!
