@@ -272,12 +272,12 @@ RSpec.describe "platform", :platform do
   describe "DELETE rooms" do
     context "when called with no room id" do
       it "returns a 404" do
-        delete(base_url, $headers)
+        delete(base_url, headers: $headers)
         expect(response).to have_http_status(:not_found)
       end
 
       it "returns a not found error" do
-        delete(base_url, $headers)
+        delete(base_url, headers: $headers)
         expect(json["errors"].size).to be(1)
       end
     end

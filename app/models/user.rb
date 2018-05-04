@@ -26,10 +26,10 @@ class User < ActiveRecord::Base
   belongs_to :platform
   has_many   :memberships, dependent: :destroy
   has_many   :rooms, through: :memberships
+  has_many   :message_user_statuses, dependent: :destroy
   has_many   :messages, through: :message_user_statuses
   has_many   :created_rooms,    class_name: "Room",    foreign_key: "initiator_id", dependent: :destroy
   has_many   :created_messages, class_name: "Message", foreign_key: "sender_id", dependent: :destroy
-  has_many   :message_user_statuses, dependent: :destroy
 
   def self.offline
     where("status = 'offline' OR status IS NULL")
