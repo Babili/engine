@@ -37,7 +37,7 @@ class Room < ActiveRecord::Base
   has_many   :memberships, dependent: :destroy
   has_many   :users, through: :memberships
   has_many   :senders, -> { distinct }, through: :messages
-  belongs_to :initiator, class_name: "User"
+  belongs_to :initiator, class_name: "User", optional: true
   belongs_to :platform
 
   def self.find_for_platform_for_user_ids(platform, user_ids)

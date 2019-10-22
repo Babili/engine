@@ -33,7 +33,7 @@ RSpec.configure do |config|
     $user.save!
     $other_user = UserFactory.build_from_server($platform, {})
     $other_user.save!
-    token    = JWTUserTokenFactory.build($user, $platform).generate
+    token    = JwtUserTokenFactory.build($user, $platform).generate
     $headers = {
       "Authorization" => "Bearer #{token}",
       "CONTENT_TYPE"  => "application/json"

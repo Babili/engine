@@ -23,7 +23,7 @@
 class User < ActiveRecord::Base
   track_entity_changes
 
-  belongs_to :platform
+  belongs_to :platform, optional: true
   has_many   :memberships, dependent: :destroy
   has_many   :rooms, through: :memberships
   has_many   :message_user_statuses, dependent: :destroy

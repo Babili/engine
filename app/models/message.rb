@@ -40,8 +40,8 @@ class Message < ActiveRecord::Base
 
   PER_PAGE = 15
 
-  belongs_to :room
-  belongs_to :sender, class_name: "User"
+  belongs_to :room, optional: true
+  belongs_to :sender, class_name: "User", optional: true
   has_many   :message_user_statuses, dependent: :destroy
   has_many   :users, through: :message_user_statuses
 

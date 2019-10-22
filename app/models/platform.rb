@@ -25,7 +25,7 @@ class Platform < ActiveRecord::Base
   has_many :messages, -> { distinct }, through: :rooms
 
   def generate_jwt_token
-    jwt_token                 = JWTToken.new
+    jwt_token                 = JwtToken.new
     jwt_token.rsa_private     = OpenSSL::PKey::RSA.new(platform_rsa_private)
     jwt_token.aud             = "platform"
     jwt_token.sub             = id

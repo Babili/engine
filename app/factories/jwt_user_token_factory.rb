@@ -1,6 +1,6 @@
-class JWTUserTokenFactory
+class JwtUserTokenFactory
   def self.build(user, platform)
-    jwt_token                 = JWTToken.new
+    jwt_token                 = JwtToken.new
     jwt_token.rsa_private     = OpenSSL::PKey::RSA.new(platform.user_rsa_private)
     jwt_token.aud             = ["user"]
     jwt_token.sub             = user.public_id

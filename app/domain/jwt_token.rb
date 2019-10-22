@@ -1,4 +1,4 @@
-class JWTToken
+class JwtToken
   attr_accessor :data, :rsa_private, :expiration, :validity_period, :issued_at, :issuer, :sub, :aud
 
   def initialize

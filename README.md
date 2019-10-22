@@ -25,6 +25,7 @@ The engine is the main service of the API.
 | `RABBITMQ_EXCHANGE_NAME` | `""`| String | Required | | `"babili"` |
 | `RABBITMQ_EXCHANGE_DURABLE` | `""`| String | Required | | `"true"` |
 | `SENTRY_DSN` | `""`| String | Optional | | `"https://.."` |
+| `API_HOST` | `""`| String | Optional | Comma separated. Added to `Rails.configuration.hosts`. | `"babili-engine,api.babili.io"` |
 
 
 ## Rake tasks
