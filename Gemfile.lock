@@ -131,7 +131,8 @@ GEM
       hashie (~> 3.6)
       multi_json (~> 1.13.1)
     rack (2.0.7)
-    rack-cors (1.0.3)
+    rack-cors (1.0.5)
+      rack (>= 1.6.0)
     rack-protection (2.0.7)
       rack
     rack-test (1.1.0)
@@ -228,7 +229,7 @@ DEPENDENCIES
   jwt (= 2.2.1)
   pg (= 1.1.4)
   puma (= 4.2.1)
-  rack-cors (= 1.0.3)
+  rack-cors (= 1.0.5)
   rails (= 6.0.0)
   rest-client (= 2.1.0)
   rspec-rails (= 3.9.0)

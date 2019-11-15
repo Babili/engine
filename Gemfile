@@ -10,7 +10,7 @@ gem "awesome_print",       "1.8.0"
 gem "rest-client",         "2.1.0"
 gem "puma",                "4.2.1"
 gem "flu-rails",           git: "https://github.com/crepesourcing/flu-rails.git"
-gem "rack-cors",           "1.0.3", require: "rack/cors"
+gem "rack-cors",           "1.0.5", require: "rack/cors"
 
 gem "byebug"
 
