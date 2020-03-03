@@ -8,7 +8,7 @@ gem "sidekiq",             "6.0.2"
 gem "sidekiq-unique-jobs", "6.0.15"
 gem "awesome_print",       "1.8.0"
 gem "rest-client",         "2.1.0"
-gem "puma",                "4.2.1"
+gem "puma",                "4.3.3"
 gem "flu-rails",           git: "https://github.com/crepesourcing/flu-rails.git"
 gem "rack-cors",           "1.0.3", require: "rack/cors"
 
