@@ -6,7 +6,7 @@ networks:
 
 services:
   postgres:
-    image: postgres:9.5
+    image: postgres:12.8-alpine3.14
     networks:
       - main
     env_file: docker-compose.test.env

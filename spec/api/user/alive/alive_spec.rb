@@ -12,13 +12,13 @@ RSpec.describe "user", :user do
 
     it "updates the alive_at attribute of the user" do
       past_time = Time.zone.now - 2.hours
-      $user.update_attributes({ alive_at: past_time })
+      $user.update({ alive_at: past_time })
       put(base_url, headers: $headers)
       expect($user.reload.alive_at).to be > past_time
     end
 
     it "sets the user status to online" do
-      $user.update_attributes({ status: "offline" })
+      $user.update({ status: "offline" })
       put(base_url, headers: $headers)
       expect($user.reload.status).to eq("online")
     end

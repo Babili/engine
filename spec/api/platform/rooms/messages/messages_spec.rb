@@ -25,7 +25,7 @@ RSpec.describe "platform", :platform do
 
         it "updates the last_activity_at attribute of the room to the current time" do
           past_time = Time.zone.now - 2.hours
-          @room.update_attributes(last_activity_at: past_time)
+          @room.update(last_activity_at: past_time)
           post(url, params: {}.to_json, headers: $headers)
           expect(@room.reload.last_activity_at).to be > past_time
         end
