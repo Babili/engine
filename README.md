@@ -19,7 +19,7 @@ The engine is the main service of the API.
 | `DB_PASSWORD` | `""`| String | Optional | | `"mypwd"` |
 | `SIDEKIQ_REDIS_URL` | `""`| String | Required | | `"redis://redis/2"` |
 | `RABBITMQ_HOST` | `""`| String | Required | | `"rabbitmq"` |
-| `RABBITMQ_PORT` | `""`| String | Required | | `"5672"` |
+| `RABBITMQ_PORT` | ``| Integer | Required | | `5672` |
 | `RABBITMQ_USER` | `""`| String | Required | | `"root"` |
 | `RABBITMQ_PASSWORD` | `""`| String | Required | | `"root"` |
 | `RABBITMQ_EXCHANGE_NAME` | `""`| String | Required | | `"babili"` |
