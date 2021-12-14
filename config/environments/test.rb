@@ -6,6 +6,5 @@ Rails.application.configure do
   config.active_support.deprecation        = :log
   config.active_record.migration_error     = :page_load
   config.log_level                         = :warn
-  config.logger                            = Logger.new(STDOUT)
   config.hosts.clear()
 end

@@ -5,6 +5,7 @@ require "rails"
 require "action_view/railtie"
 require "active_record/railtie"
 require_relative "../lib/babili_exceptions_application"
+require_relative "../lib/babili_logger"
 
 Bundler.require(*Rails.groups)
 
@@ -24,6 +25,9 @@ module BabiliEngine
     end
 
     config.load_defaults "6.0"
+
+    # Log formatter
+    config.logger    = BabiliLogger.logger
 
     # Enable per-form CSRF tokens. Previous versions had false.
     config.action_controller.per_form_csrf_tokens = false

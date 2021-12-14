@@ -5,5 +5,4 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
   config.active_support.deprecation = :log
   config.active_record.migration_error = :page_load
-  config.logger = Logger.new(STDOUT)
 end
