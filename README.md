@@ -159,6 +159,18 @@ The payload you will recieve has the following format:
 }
 ```
 
+
+## Build and deploy
+
+Since Travis is not supported, builds can be deployed with:
+
+```
+$ docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+$ docker build --pull --build-arg APP_ENV=production -t babili/engine:latest -t babili/engine:`git rev-parse HEAD` . && \
+  docker push babili/engine:`git rev-parse HEAD` && \
+  docker push babili/engine:latest
+```
+
 ## Contributors
 
 Babili is the product of the Collaboration of the Spin42 team (http://spin42.com) and the Commuty one (https://www.commuty.net).
