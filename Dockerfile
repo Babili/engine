@@ -1,10 +1,13 @@
-FROM ruby:2.7.4-slim
+FROM ruby:2.7.5-alpine3.15
 
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev libjemalloc-dev libxml2-dev git && apt-get clean && \
-  mkdir -p /usr/src/app && \
-  groupadd -r babili && useradd -r -g babili babili && \
-  mkdir -p /home/babili && chown babili:babili /home/babili && \
-  chown -R babili:babili /usr/local/bundle
+RUN apk add --update build-base tzdata git postgresql-dev ruby-dev \
+  && rm -rf /var/cache/apk/* \
+  && mkdir -p /usr/src/app \
+  && addgroup -S babili \
+  && adduser -S babili -G babili \
+  && mkdir -p /home/babili && chown babili:babili /home/babili \
+  && mkdir -p /usr/local/bundler && chown babili:babili /usr/local/bundler \
+  && chown -R babili:babili /usr/local/bundle
 
 WORKDIR /usr/src/app
 USER babili

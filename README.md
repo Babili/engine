@@ -160,6 +160,16 @@ The payload you will recieve has the following format:
 ```
 
 
+## Run tests
+
+```
+$ docker-compose -f docker-compose.test.yml build --pull
+$ docker-compose -f docker-compose.test.yml up -d postgres
+$ sleep 2
+$ docker-compose -f docker-compose.test.yml run engine rake db:test:prepare
+$ docker-compose -f docker-compose.test.yml run engine rspec spec
+```
+
 ## Build and deploy
 
 Since Travis is not supported, builds can be deployed with:

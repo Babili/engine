@@ -5,16 +5,18 @@ networks:
     driver: bridge
 
 services:
-  postgres:
+  postgres-babili-test:
     image: postgres:12.8-alpine3.14
     networks:
       - main
     env_file: docker-compose.test.env
 
-  engine:
+  babili-engine-test:
     build: .
     networks:
       - main
+    volumes:
+      - ./:/usr/src/app
     depends_on:
-      - postgres
+      - postgres-babili-test
     env_file: docker-compose.test.env
