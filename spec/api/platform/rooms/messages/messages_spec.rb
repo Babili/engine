@@ -66,6 +66,20 @@ RSpec.describe "platform", :platform do
           expect(json["errors"].size).to be(1)
         end
       end
+
+      context "when called with a message containing HTML" do
+        let(:corrupted_content) { "<script>Hello</script>" }
+
+        it "returns a 201" do
+          post(url, params: { data: { attributes: { content: corrupted_content } } }.to_json, headers: $headers)
+          expect(response).to have_http_status(:created)
+        end
+
+        it "returns the new message with HTML escaped" do
+          post(url, params: { data: { attributes: { content: corrupted_content } } }.to_json, headers: $headers)
+          expect(json.dig("data", "attributes", "content")).to eq "&lt;script&gt;Hello&lt;/script&gt;"
+        end
+      end
     end
 
     describe "DELETE messages" do

@@ -160,6 +160,18 @@ RSpec.describe "user", :user do
         end
       end
 
+      context "when called with a message containing HTML" do
+        it "returns a 201" do
+          post(url, params: { data: { attributes: { content: "<h1>Hello</h1>" } } }.to_json, headers: $headers)
+          expect(response).to have_http_status(:created)
+        end
+
+        it "returns the new message with HTML escaped" do
+          post(url, params: { data: { attributes: { content: "<h1>Hello</h1>" } } }.to_json, headers: $headers)
+          expect(json.dig("data", "attributes", "content")).to eq "&lt;h1&gt;Hello&lt;/h1&gt;"
+        end
+      end
+
       context "when called with a non-existing message id" do
         let(:message_id) { SecureRandom.uuid }
 

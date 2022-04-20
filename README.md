@@ -164,10 +164,10 @@ The payload you will recieve has the following format:
 
 ```
 $ docker-compose -f docker-compose.test.yml build --pull
-$ docker-compose -f docker-compose.test.yml up -d postgres
+$ docker-compose -f docker-compose.test.yml up -d postgres-babili-test
 $ sleep 2
-$ docker-compose -f docker-compose.test.yml run engine rake db:test:prepare
-$ docker-compose -f docker-compose.test.yml run engine rspec spec
+$ docker-compose -f docker-compose.test.yml run babili-engine-test rake db:test:prepare
+$ docker-compose -f docker-compose.test.yml run babili-engine-test rspec spec
 ```
 
 ## Build and deploy

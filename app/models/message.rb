@@ -123,4 +123,8 @@ class Message < ActiveRecord::Base
   def platform_id
     room.platform_id
   end
+
+  def content=(value)
+    super(value.nil? ? nil : CGI::escapeHTML(value))
+  end
 end

@@ -100,4 +100,8 @@ class Room < ActiveRecord::Base
   def messages_before(limit, message = nil)
     Message.previous_messages_for_room(self, limit, message)
   end
+
+  def name=(value)
+    super(value.nil? ? nil : CGI::escapeHTML(value))
+  end
 end

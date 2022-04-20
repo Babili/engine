@@ -350,6 +350,16 @@ RSpec.describe "user", :user do
       end
     end
 
+    context "when called with a name containing HTML" do
+      let(:room_id) { SecureRandom.uuid }
+
+      it "returns the new room with the HTML escaped" do
+        data = { data: { attributes: { name: "<span>Title</span>"} } }
+        post(base_url, params: data.to_json, headers: $headers)
+        expect(json["data"]["attributes"]["name"]).to eq("&lt;span&gt;Title&lt;/span&gt;")
+      end
+    end
+
     context "when called with an existing room id" do
       let(:room_id) { SecureRandom.uuid }
 
