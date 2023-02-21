@@ -28,6 +28,7 @@ The engine is the main service of the API.
 | `API_HOST` | `""`| String | Optional | Comma separated. Added to `Rails.configuration.hosts`. | `"babili-engine,api.babili.io"` |
 | `LOGGER_ENVIRONMENT_NAME` | `"development"`| String | Required | | `"production"` |
 | `LOGGER_APPLICATION_NAME` | `"babili-engine"`| String | Optional | | `"babili"` |
+| `ENABLE_HSTS` | `""`| String | Optional | Enable the HTTP headers HSTS in the response when enabled | `"true"` |
 
 
 ## Rake tasks

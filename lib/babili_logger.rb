@@ -14,7 +14,7 @@ module BabiliLogger
     end
 
     def self.application_name
-      @application_name ||= ENV["LOGGER_APPLICATION_NAME"] || "event-store"
+      @application_name ||= ENV["LOGGER_APPLICATION_NAME"] || "babili-engine"
     end
 
     def self.environment_name

@@ -49,6 +49,12 @@ module BabiliEngine
     # Previous versions had false.
     ActiveSupport.to_time_preserves_timezone = false
 
+    # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
+    if ENV["ENABLE_HSTS"] == "true"
+      config.force_ssl   = true 
+      config.ssl_options = { redirect: false }
+    end
+
     unless ENV["API_HOST"].blank?
       config.hosts += ENV["API_HOST"].split(",").map(&:strip)
     else
