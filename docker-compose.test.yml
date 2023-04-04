@@ -6,7 +6,7 @@ networks:
 
 services:
   postgres-babili-test:
-    image: postgres:13.6-alpine3.15
+    image: postgres:15.2-alpine3.17
     networks:
       - main
     env_file: docker-compose.test.env
