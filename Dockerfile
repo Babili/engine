@@ -1,4 +1,4 @@
-FROM ruby:2.7.6-alpine3.15
+FROM ruby:3.2.2-alpine3.17
 
 RUN apk add --update build-base tzdata git postgresql-dev yaml-dev ruby-dev \
   && rm -rf /var/cache/apk/* \
@@ -13,11 +13,12 @@ WORKDIR /usr/src/app
 USER babili
 
 COPY Gemfile* ./
+ARG APP_ENV=development
+RUN if [ "$APP_ENV" != "development" ]; then bundle config set --local without "development test"; fi
 RUN bundle install
 
 COPY . .
 
-ARG APP_ENV=development
 ENV RAILS_ENV ${APP_ENV}
 ENV RACK_ENV none
 
