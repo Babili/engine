@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :platforms, only: [:show]
     resource  :refresh_statuses,     only: [:create], path: "refresh-statuses"
     resource  :send_unread_messages, only: [:create], path: "send-unread-messages"
+    resource  :message_deletions,    only: [:create], path: "message-deletions"
   end
 
   namespace :user, defaults: { format: :json } do

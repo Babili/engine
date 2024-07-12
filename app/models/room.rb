@@ -76,6 +76,10 @@ class Room < ActiveRecord::Base
     rooms.limit(limit)
   end
 
+  def self.without_any_message
+    where("NOT EXISTS (SELECT 1 FROM messages WHERE room_id=rooms.id)")
+  end
+
   def unread_message_count_for_user(user)
     MessageUserStatus.joins(:message)
       .where(messages: {room_id: id})

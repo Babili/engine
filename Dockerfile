@@ -1,6 +1,6 @@
 FROM ruby:3.2.2-alpine3.17
 
-RUN apk add --update build-base tzdata git postgresql-dev yaml-dev ruby-dev \
+RUN apk add --update build-base tzdata git postgresql-dev yaml-dev ruby-dev gcompat \
   && rm -rf /var/cache/apk/* \
   && mkdir -p /usr/src/app \
   && addgroup -S babili \

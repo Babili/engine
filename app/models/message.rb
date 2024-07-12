@@ -120,6 +120,10 @@ class Message < ActiveRecord::Base
     end
   end
 
+  def self.created_before(date)
+    where("created_at < ?", date.to_date)
+  end
+
   def platform_id
     room.platform_id
   end
