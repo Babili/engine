@@ -1,4 +1,4 @@
-# Babili Engine <a href="https://travis-ci.org/Babili/engine">![Build status](https://travis-ci.org/Babili/engine.svg?branch=master)</a>
+# Babili Engine <a href="https://travis-ci.org/Babili/engine">![Build status](https://travis-ci.org/Babili/engine.svg?branch=main)</a>
 
 
 Babili is a real-time chat backend built with Ruby, Rails, Node, Socket.io and Docker.

@@ -8,16 +8,22 @@ class UnreadMessagesHookWorker
     @recipient = User.find(recipient_id)
     @room      = @messages.first.room
     if @messages.any? && @platform.has_offline_message_hook?
-      RestClient.post(
-        @platform.offline_user_message_hook_url,
-        build_body.to_json,
-        content_type: :json,
-        accept:       :json
-      )
+      connection.post(@platform.offline_user_message_hook_url) do |req|
+        req.headers['Content-Type'] = 'application/json'
+        req.headers['Accept']       = 'application/json'
+        req.body                    = build_body.to_json
+      end
     end
   end
 
   private
+
+  def connection
+    Faraday.new do |conn|
+      conn.response :raise_error
+      conn.adapter Faraday.default_adapter
+    end
+  end
 
   def build_body
     body = {
