@@ -59,3 +59,25 @@ jobs:
 
       - name: Run RSpec
         run: bundle exec rspec
+
+  security:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4.10'
+          bundler-cache: true
+
+      - name: Install security scanners
+        run: gem install bundler-audit brakeman --no-document
+
+      - name: Audit gem dependencies (bundler-audit)
+        run: bundle-audit check --update
+
+      - name: Static security analysis (brakeman)
+        run: brakeman -q
