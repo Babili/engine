@@ -26,6 +26,8 @@
 #  fk_message_to_senders  (sender_id => users.id)
 #
 
+require "ostruct"
+
 class Message < ActiveRecord::Base
   track_entity_changes user_metadata: {
     create: lambda do
