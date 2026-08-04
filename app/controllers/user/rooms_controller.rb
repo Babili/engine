@@ -25,7 +25,7 @@ class User::RoomsController < UserController
       room_count = rooms.count
       rooms      = rooms.before_room(rooms_per_page, first_seen_room)
     end
-    rooms.includes(:users, :senders)
+    rooms = rooms.includes(:users, :senders)
     render json: User::RoomPresenter.map(
       rooms:             rooms,
       room_count:        room_count,
