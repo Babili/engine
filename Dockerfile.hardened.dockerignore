@@ -1,0 +1,14 @@
+.git
+.ruby-*
+.github
+.claude
+.ruby-lsp
+spec
+docker-compose*
+README.md
+API.md
+LICENCE.md
+.rspec
+.annotaterb.yml
+.byebug_history
+Dockerfile*

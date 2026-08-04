@@ -178,7 +178,7 @@ Since Travis is not supported, builds can be deployed with:
 
 ```
 $ docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-$ docker build --pull --build-arg APP_ENV=production -t babili/engine:latest -t babili/engine:`git rev-parse HEAD` . && \
+$ docker build --pull -f Dockerfile.hardened --build-arg APP_ENV=production -t babili/engine:latest -t babili/engine:`git rev-parse HEAD` . && \
   docker push babili/engine:`git rev-parse HEAD` && \
   docker push babili/engine:latest
 ```
