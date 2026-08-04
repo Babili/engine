@@ -22,6 +22,7 @@ RSpec.configure do |config|
 
   config.before(:each) do
     DatabaseCleaner.start
+    Flu.event_publisher.clear
   end
 
   config.append_after(:each) do
