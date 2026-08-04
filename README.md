@@ -17,6 +17,7 @@ The engine is the main service of the API.
 | `DB_USER` | `"postgres"`| String | Optional | | `"localhost"` |
 | `DB_PORT` | `"5432"`| String | Optional | | `"5432"` |
 | `DB_PASSWORD` | `""`| String | Optional | | `"mypwd"` |
+| `RAILS_MAX_THREADS` | `6`| Integer | Optional | Puma threads per worker and DB connection pool size (per process). Keep in sync with Puma workers/threads and Sidekiq concurrency. | `10` |
 | `SIDEKIQ_REDIS_URL` | `""`| String | Required | | `"redis://redis/2"` |
 | `RABBITMQ_HOST` | `""`| String | Required | | `"rabbitmq"` |
 | `RABBITMQ_PORT` | ``| Integer | Required | | `5672` |

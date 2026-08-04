@@ -6,7 +6,7 @@ else
 end
 
 # Min and Max threads per worker
-threads 1, 6
+threads 1, ENV.fetch("RAILS_MAX_THREADS", 6).to_i
 preload_app!
 
 port 3000

@@ -5,7 +5,7 @@ common: &default_settings
   user: <%= ENV["DB_USER"] || "postgres" %>
   port: <%= ENV["DB_PORT"] || 5432 %>
   password: <%= ENV["DB_PASSWORD"] %>
-  pool: 50
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS", 6) %>
 
 development:
   <<: *default_settings
